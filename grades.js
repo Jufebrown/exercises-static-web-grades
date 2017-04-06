@@ -7,19 +7,24 @@
 // A score of 91-100 is an A
 // Start with array of random scores in your JavaScript
 
-// var scores = [82, 71, 95, 55, 98, 69, 72, 78, 84, 64, 58, 87];
+// let scores = [82, 71, 95, 55, 98, 69, 72, 78, 84, 64, 58, 87];
 // Use console.log to output the following criteria:
 
 // How many of each grade?
 // What is the lowest grade?
 // What is the highest grade?
 
-var scores = [82, 71, 95, 55, 98, 69, 72, 78, 84, 64, 58, 87];
 
-var hi = 0;
-var lo = 0;
 
-var grades = {
+// array with sample scores
+const scores = [82, 71, 95, 55, 98, 69, 72, 78, 84, 64, 58, 87];
+
+// initialize hi and lo scores
+let hi = 0;
+let lo = 0;
+
+// initialize object with grades
+let grades = {
 	a : 0,
 	b : 0,
 	c : 0,
@@ -27,7 +32,8 @@ var grades = {
 	f : 0,
 }
 
-function gradeCounter(currentScore) {
+// function that increments grades based on range score falls into
+const gradeCounter = (currentScore) => {
 	if (currentScore <= 100 && currentScore >= 91) {
 		grades.a++;
 	} else if (currentScore <= 90 && currentScore >= 81) {
@@ -41,7 +47,8 @@ function gradeCounter(currentScore) {
 	}
 }
 
-function hiLo (thisScore) {
+// sets hi and lo scores
+const hiLo = (thisScore) => {
 	if (thisScore > hi) {
 		hi = thisScore;
 	} else if (thisScore < lo) {
@@ -49,10 +56,11 @@ function hiLo (thisScore) {
 	}
 }
 
-
+// loops over scores
 for (var i = scores.length - 1; i >= 0; i--) {
 	gradeCounter(scores[i]);
 	hiLo(scores[i]);
 }
 
+// outputs results to console
 console.log(grades, hi, lo);
